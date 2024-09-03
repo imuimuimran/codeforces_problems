@@ -1,0 +1,8 @@
+import math
+
+def number_of_flagstones(n, m, a):
+    return math.ceil(n/a) * math.ceil(m/a)
+
+n, m, a = map(int, input().split())
+
+print(number_of_flagstones(n, m, a))
