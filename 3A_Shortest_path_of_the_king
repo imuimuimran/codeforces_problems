@@ -1,0 +1,44 @@
+def king_shortest_path(start, end):
+    # Convert chess positions to coordinates
+    x1, y1 = ord(start[0]) - ord('a'), int(start[1]) - 1
+    x2, y2 = ord(end[0]) - ord('a'), int(end[1]) - 1
+    
+    # Calculate the differences in the x and y directions
+    dx = x2 - x1
+    dy = y2 - y1
+    
+    moves = []
+    
+    # Move diagonally as much as possible
+    while dx != 0 or dy != 0:
+        move = ""
+        
+        if dx > 0:
+            move += "R"
+            dx -= 1
+        elif dx < 0:
+            move += "L"
+            dx += 1
+        
+        if dy > 0:
+            move += "U"
+            dy -= 1
+        elif dy < 0:
+            move += "D"
+            dy += 1
+        
+        moves.append(move)
+    
+    return moves
+
+# Read input
+start = input().strip()
+end = input().strip()
+
+# Find the shortest path
+moves = king_shortest_path(start, end)
+
+# Output the result
+print(len(moves))
+for move in moves:
+    print(move)
